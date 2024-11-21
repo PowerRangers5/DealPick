@@ -62,13 +62,71 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     '${item['price'].toString().replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => ',')}원',
                     style: const TextStryle(fontSize: 14),
                   ),
-                  
-                )
-              }
-            )
-          )
-        ]
-      )
-    )
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            if (item['quantity'] > 1) item['quantity']--;
+                          });
+                        },
+                        icon: const Icon(Icons.remove_circle_outline),
+                      ),
+                      Text(item['quantity'].toString(), style: const TextStyle(fontSize 16)),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            item['quantity']++;
+                          });
+                        },
+                        icon: const Icon(Icons.add_circle_outline),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetWeen,
+                  children: [
+                    const Text('총가격', style: TextStyle(fontSize: 18, fontWeight: FontWeigh.bold)),
+                    Text(
+                      '${getTotalPrice().toString().replaceallMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => ',')}원',
+                      style: const TextStyle(fontSize: 18, fontWeight: FontWeigh.bold),
+                    ),
+                  ],
+                ),
+                const SizeBox(height: 16),
+                SizedBox(
+                  width: doble.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('구매가 완료되었습니다!')),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                    child: const Text('구매하기', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // 테스트용: 새로운 항목 추가
+          addItemToCart('람보르기니', 160000000);
+        },
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }
