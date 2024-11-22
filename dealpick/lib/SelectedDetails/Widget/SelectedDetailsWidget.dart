@@ -18,34 +18,35 @@ import 'package:flutter/material.dart';
  * - 제품의 이미지 (횡 스크롤)
  * - 이름 가격 들어가는 박스
  * - 구매하기버튼 (Resized)
+ * 
  */
 
 
 
 // 제품의 이미지 (횡 스크롤) 위젯
 class ImageBox extends StatelessWidget {
+  String? assetName;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return _imageWidget({
-      Screens('image asset directory'), //add as much pages as needed 
-    });
+    return _imageWidget();
   }
 
-  final ScreenController _screenController = ScreenController();
+  //final ScreenController _screenController = ScreenController();
 
-  Widget _imageWidget(Set<Widget> Screen){
+  Widget _imageWidget(){
     return LayoutBuilder(
       builder: (context, constraints){
         return Row(
-          Screen,
-          Screen,
-          Screen,
+          Screens('directory1'),
+          Screens('directory2'),
+          Screens('directory3'),
         );
       },
     )
   }
-
+  //get the image and place it inside a box
   Widget Screens(String assetName) {
     return SizedBox.expand(
       child: Container(
@@ -58,6 +59,10 @@ class ImageBox extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void change_name (String asset) {
+    this.assetName = asset;
   }
 
 }
@@ -102,3 +107,28 @@ class DetailBox extends StatelessWidget {
 }
 
 // 구매하기 버튼 (Resized)
+class ResizedBuyButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        //action to perform when pressed
+
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color.fromRGBO(52, 189, 140, 100), // this is the code for #34BD8C color
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        minimumSize: Size(284,50),
+      ),
+      child: const SizedBox(
+        child: Text(
+         "구매하기",
+
+        ),
+      ),
+    );
+  }
+}
