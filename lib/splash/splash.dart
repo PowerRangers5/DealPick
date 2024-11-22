@@ -1,6 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+import 'package:google_fonts/google_fonts.dart';
+>>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -38,7 +42,11 @@ class _SplashState extends State<Splash> {
           children: [
             Text(
               'DealPick',
+<<<<<<< HEAD
               style: (
+=======
+              style: GoogleFonts.lobster(
+>>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
                 fontSize: 54,
                 fontWeight: FontWeight.normal,
                 color: Colors.white,

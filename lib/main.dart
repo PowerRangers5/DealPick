@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'car_registration/car_registration.dart';
+=======
+import 'package:flutter_dealpick/home_screen/home_screen.dart';
+import 'package:flutter_dealpick/splash/splash.dart';
+>>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+<<<<<<< HEAD
       title: '차량 등록',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -36,3 +42,13 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+=======
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/HomeScreen': (context) => HomeScreen(),
+      },
+      home: Splash(),
+    );
+  }
+}
+>>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)

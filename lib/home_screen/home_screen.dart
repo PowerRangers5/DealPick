@@ -184,10 +184,14 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () {
         setState(() {
 <<<<<<< HEAD
+<<<<<<< HEAD
           selectedCategory = index;
 =======
           selectedCategory = index; // 클릭한 카테고리로 변경
 >>>>>>> a0c0869 (feat: CategoryPage 연결)
+=======
+          selectedCategory = index;
+>>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
         });
       },
       child: Container(
@@ -204,11 +208,16 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: selectedCategory == index ? Colors.white : Colors.black,
 <<<<<<< HEAD
+<<<<<<< HEAD
             fontWeight:
                 selectedCategory == index ? FontWeight.bold : FontWeight.normal,
 =======
             fontWeight: FontWeight.bold,
 >>>>>>> a0c0869 (feat: CategoryPage 연결)
+=======
+            fontWeight:
+                selectedCategory == index ? FontWeight.bold : FontWeight.normal,
+>>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
           ),
         ),
       ),
