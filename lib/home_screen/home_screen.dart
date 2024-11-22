@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dealpick/home_screen/components/category_view.dart';
 import 'package:flutter_dealpick/home_screen/components/hot_deal.dart';
+import 'package:flutter_dealpick/home_screen/components/category_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedCategory = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +19,9 @@ class HomeScreen extends StatelessWidget {
       appBar: _appBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Color(0xff34BD8C),
-        shape: CircleBorder(),
-        child: Icon(
+        backgroundColor: const Color(0xff34BD8C),
+        shape: const CircleBorder(),
+        child: const Icon(
           Icons.add,
           color: Color(0xffffffff),
         ),
@@ -26,19 +33,20 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Divider(
               thickness: 5,
-              color: Color(0xffD9D9D9),
+              color: const Color(0xffD9D9D9),
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
-                CategoryView(category: '대형세단'),
-                CategoryView(category: 'SUV'),
-                CategoryView(category: '경차'),
+                _categoryButton(0, '대형세단'),
+                _categoryButton(1, 'SUV'),
+                _categoryButton(2, '경차'),
               ],
             ),
           ),
+          CategoryPage(selectedCategory: selectedCategory),
         ],
       ),
     );
@@ -53,12 +61,12 @@ class HomeScreen extends StatelessWidget {
             style: GoogleFonts.lobster(
               fontSize: 32,
               fontWeight: FontWeight.normal,
-              color: Color(0xff34BD8C),
+              color: const Color(0xff34BD8C),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Colors.black,
               size: 30,
@@ -66,7 +74,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {},
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.shopping_cart_outlined,
               color: Colors.black,
               size: 30,
@@ -74,6 +82,33 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {},
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _categoryButton(int index, String categoryName) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedCategory = index; // 클릭한 카테고리로 변경
+        });
+      },
+      child: Container(
+        margin: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        decoration: BoxDecoration(
+          color: selectedCategory == index
+              ? const Color(0xff34BD8C)
+              : Colors.grey[300],
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Text(
+          categoryName,
+          style: TextStyle(
+            color: selectedCategory == index ? Colors.white : Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
     );
   }
