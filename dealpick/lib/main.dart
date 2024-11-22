@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Inter',
         
       ),
-      home: selectedDetailsPage(),
+      home: const selectedDetailsPage(),
     );
   }
 }

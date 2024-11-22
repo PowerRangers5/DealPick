@@ -26,8 +26,6 @@ import 'package:flutter/material.dart';
 class ImageBox extends StatelessWidget {
   const ImageBox({super.key});
 
-  //String? assetName;
-
   @override
   Widget build(BuildContext context) {
     return _imageWidget();
@@ -41,6 +39,7 @@ class ImageBox extends StatelessWidget {
         return Row(
           children: [
             Screens("assets/image/gv70.png"),
+            Screens("assets/image/revuelto.png")
             //Screens('directory2'),
             //Screens('directory3'),
           ],
@@ -50,6 +49,7 @@ class ImageBox extends StatelessWidget {
     );
   }
   //get the image and place it inside a box
+  // ignore: non_constant_identifier_names
   Widget Screens(String assetPath) {
     String assetName = assetPath;
     return SizedBox.expand(
@@ -69,11 +69,9 @@ class ImageBox extends StatelessWidget {
 // 이름, 가격 들어가는 Box 위젯
 // ignore: must_be_immutable
 class DetailBox extends StatelessWidget {
-  int? price; //가격
-  String? carType; //팔고자 하는 차량
-  String? sellerID;
-
-  DetailBox({super.key}); //파는사람 아이디
+  int price = 100000000; //가격
+  String carType = "Dream Car"; //팔고자 하는 차량
+  String sellerID = "User 1";
 
   @override
   Widget build(BuildContext context) {
@@ -89,10 +87,10 @@ class DetailBox extends StatelessWidget {
               //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  '$sellerID',
+                  sellerID,
                 ),
                 Text(
-                  '$carType',
+                  carType,
                 ),
               ],
             ),
@@ -126,6 +124,7 @@ class BottomRow extends StatelessWidget {
     );
   }
   //cart button [UI]
+  // ignore: non_constant_identifier_names
   Widget CartButton(BuildContext context) {
     return GestureDetector(
       onTap: () {

@@ -19,21 +19,27 @@ import 'package:flutter/material.dart';
 /// - Column, Row (안에 들어갈 위젯은 SelectedDetails/Widget/SelectedDetailsWidget.dart 에서 받기)
 /// - 각 버튼별 기능 부여
 
+// ignore: camel_case_types
 class selectedDetailsPage extends StatelessWidget {
   const selectedDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
-      appBar: AppBar(title: Text('상세페이지', style: TextStyle(fontSize: 24))),
+      appBar: AppBar(
+        leading: IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back_ios)),
+        title: const Text(
+          '상세페이지',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
       body: Column(
         children: [
           const ImageBox(), //나중에 여기에 이미지들 pass시켜야 해오
           Container(height: 22),
-          DetailBox(),
+          DetailBox(), //디테일 들어가는 박스
           Container(height: 11),
-          const BottomRow(),
+          const BottomRow(), //장바구니, 구매하기 버튼 
           Container(height: 37),
         ],
       ),
