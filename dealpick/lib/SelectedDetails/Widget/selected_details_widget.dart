@@ -28,26 +28,31 @@ class ImageBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _imageWidget();
+    List<String> pagelist = [
+      //pass in the directory
+      "assets/images/gv70.png",
+      "assets/images/revuelto.png",
+      //'directory2',
+      //'directory3',
+      ];
+    return _imageWidget(pagelist);
   }
 
   //final ScreenController _screenController = ScreenController();
 
-  Widget _imageWidget(){
-    return LayoutBuilder(
-      builder: (context, constraints){
-        return Row(
-          children: [
-            Screens("assets/image/gv70.png"),
-            Screens("assets/image/revuelto.png")
-            //Screens('directory2'),
-            //Screens('directory3'),
-          ],
-
-        );
-      },
+  Widget _imageWidget(List<String> pages){
+    return SizedBox( 
+      height: 260,
+      width: 393,
+      child: PageView(
+        children: [
+          Screens(pages[0]),
+          Screens(pages[1]),
+        ],
+      ),
     );
   }
+
   //get the image and place it inside a box
   // ignore: non_constant_identifier_names
   Widget Screens(String assetPath) {
@@ -64,6 +69,7 @@ class ImageBox extends StatelessWidget {
       ),
     );
   }
+  
 }
 //double check implementations
 // 이름, 가격 들어가는 Box 위젯
@@ -76,31 +82,75 @@ class DetailBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      //Box contains Name(w Company), price
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
+
         children: [
-          Flexible(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  sellerID,
+          //Box contains Name(w Company), price
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    //crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        sellerID,
+                        style: const TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        carType,
+                        style: const TextStyle(fontSize: 24),
+                      ),
+                    ],
+                  ),
                 ),
-                Text(
-                  carType,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: Text(
+                  "$price 원",
+                  style: const TextStyle(fontSize: 24),
                 ),
-              ],
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 5,
+            width: double.infinity,
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: Color(0xffD9D9D9)),
             ),
           ),
-          
-          Text(
-            "$price 원"
+          const Padding(
+            padding: EdgeInsets.only(left: 20),
+            child: SizedBox(
+              height: 48,
+              width: double.infinity,
+              child: Align(
+                alignment: FractionalOffset(0, 1),
+                child: Text(
+                  '상품설명',
+                  style: TextStyle(fontSize: 24),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 235,
+            width: double.infinity,
+            //where the text comes for details
+          ),
+          const SizedBox(
+            height: 20,
+            width: double.infinity,
           ),
         ],
       ),
+
     );
   }
 }

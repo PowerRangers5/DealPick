@@ -33,14 +33,17 @@ class selectedDetailsPage extends StatelessWidget {
           style: TextStyle(fontSize: 24),
         ),
       ),
+
       body: Column(
         children: [
-          const ImageBox(), //나중에 여기에 이미지들 pass시켜야 해오
-          Container(height: 22),
-          DetailBox(), //디테일 들어가는 박스
-          Container(height: 11),
-          const BottomRow(), //장바구니, 구매하기 버튼 
-          Container(height: 37),
+          
+            ImageBox(), //나중에 여기에 이미지들 pass시켜야 해오
+            Container(height: 22),
+            DetailBox(), //디테일 들어가는 박스
+            Container(height: 11),
+            const BottomRow(), //장바구니, 구매하기 버튼 
+            Container(height: 37),
+          
         ],
       ),
     );
