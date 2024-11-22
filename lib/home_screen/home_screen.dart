@@ -54,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar _appBar() {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Row(
         children: [
           Text(
