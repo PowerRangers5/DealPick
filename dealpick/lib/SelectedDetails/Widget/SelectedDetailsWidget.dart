@@ -25,7 +25,7 @@ import 'package:flutter/material.dart';
 
 // 제품의 이미지 (횡 스크롤) 위젯
 class ImageBox extends StatelessWidget {
-  String? assetName;
+  //String? assetName;
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +50,14 @@ class ImageBox extends StatelessWidget {
     );
   }
   //get the image and place it inside a box
-  Widget Screens(String assetName) {
-    String assetPath = assetName;
+  Widget Screens(String assetPath) {
+    String assetName = assetPath;
     return SizedBox.expand(
       child: Container(
         color: const Color(0xff5c786E),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(assetPath), //add image assets here
+            image: AssetImage(assetName), //add image assets here
             fit: BoxFit.cover,
           )
         ),
@@ -65,8 +65,8 @@ class ImageBox extends StatelessWidget {
     );
   }
 
-  void change_name (String asset) {
-    this.assetName = asset;
+  void change_directory (String asset) {
+    Screens(asset);
   }
 
 }
