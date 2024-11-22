@@ -1,4 +1,4 @@
-import 'package:dealpick/SelectedDetails/Widget/SelectedDetailsWidget.dart';
+import 'package:dealpick/SelectedDetails/Widget/selected_details_widget.dart';
 import 'package:flutter/material.dart';
 
 /** [제품 상세설명 페이지]

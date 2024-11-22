@@ -1,4 +1,4 @@
-import 'package:dealpick/SelectedDetails/SelectedDetailsPage.dart';
+import 'package:dealpick/SelectedDetails/selecteddetailspage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DealPick',
-      theme: ThemeData(fontFamily: 'Inter'),
+      theme: ThemeData(
+        fontFamily: 'Inter',
+        
+      ),
       home: selectedDetailsPage(),
     );
   }

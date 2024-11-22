@@ -29,7 +29,6 @@ class ImageBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return _imageWidget();
   }
 
@@ -54,7 +53,7 @@ class ImageBox extends StatelessWidget {
     String assetName = assetPath;
     return SizedBox.expand(
       child: Container(
-        color: const Color(0xff5c786E),
+        //color: const Color(0xff5c786E),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(assetName), //add image assets here
@@ -65,21 +64,22 @@ class ImageBox extends StatelessWidget {
     );
   }
 
-  void change_directory (String asset) {
+  void changeDirectory (String asset) {
     Screens(asset);
   }
 
 }
-
+//double check implementations
 // 이름, 가격 들어가는 Box 위젯
 class DetailBox extends StatelessWidget {
   int? price; //가격
   String? carType; //팔고자 하는 차량
-  String? sellerID; //파는사람 아이디
+  String? sellerID;
+
+  DetailBox({super.key}); //파는사람 아이디
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return SizedBox(
       //Box contains Name(w Company), price
       child: Row(
@@ -120,12 +120,12 @@ class ResizedBuyButton extends StatelessWidget {
 
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromRGBO(52, 189, 140, 100), // this is the code for #34BD8C color
+        backgroundColor: const Color.fromRGBO(52, 189, 140, 100), // this is the code for #34BD8C color
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        minimumSize: Size(284,50),
+        minimumSize: const Size(284,50),
       ),
       child: const SizedBox(
         child: Text(
