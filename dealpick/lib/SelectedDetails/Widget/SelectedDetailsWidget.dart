@@ -39,21 +39,25 @@ class ImageBox extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints){
         return Row(
-          Screens('directory1'),
-          Screens('directory2'),
-          Screens('directory3'),
+          children: [
+            Screens("assets/image/gv70.png"),
+            //Screens('directory2'),
+            //Screens('directory3'),
+          ],
+
         );
       },
-    )
+    );
   }
   //get the image and place it inside a box
   Widget Screens(String assetName) {
+    String assetPath = assetName;
     return SizedBox.expand(
       child: Container(
         color: const Color(0xff5c786E),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(assetName), //add image assets here
+            image: AssetImage(assetPath), //add image assets here
             fit: BoxFit.cover,
           )
         ),
