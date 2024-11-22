@@ -29,8 +29,11 @@ class selectedDetailsPage extends StatelessWidget {
       body: Column(
         children: [
           ImageBox(),
+          Container(height: 22),
           DetailBox(),
-          ResizedBuyButton(),
+          Container(height: 11),
+          BottomRow(),
+          Container(height: 37),
         ],
       ),
     );

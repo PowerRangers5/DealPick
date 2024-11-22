@@ -130,9 +130,50 @@ class ResizedBuyButton extends StatelessWidget {
       child: const SizedBox(
         child: Text(
          "구매하기",
-
+          style: TextStyle(fontSize: 16),
         ),
       ),
+    );
+  }
+}
+
+//cart button
+class CartButton extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        //send to cart page
+      },
+      child: Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: Colors.white,
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: const Icon(Icons.shopping_cart, size: 30, color: Colors.black),
+      ),
+    );
+  }
+}
+
+//row of cart button with resized buy button
+class BottomRow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        CartButton(),
+        Container(
+          width: 19,
+        ),
+        ResizedBuyButton(),
+      ],
     );
   }
 }
