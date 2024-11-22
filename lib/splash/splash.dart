@@ -1,8 +1,25 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Splash extends StatelessWidget {
+class Splash extends StatefulWidget {
   const Splash({super.key});
+
+  @override
+  State<Splash> createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
+  void initState() {
+    super.initState();
+    Timer(
+      Duration(seconds: 2),
+      () {
+        Navigator.pushNamed(context, '/HomeScreen');
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

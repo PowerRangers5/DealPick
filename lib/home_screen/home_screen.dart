@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          selectedCategory = index; // 클릭한 카테고리로 변경
+          selectedCategory = index;
         });
       },
       child: Container(
@@ -106,7 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
           categoryName,
           style: TextStyle(
             color: selectedCategory == index ? Colors.white : Colors.black,
-            fontWeight: FontWeight.bold,
+            fontWeight:
+                selectedCategory == index ? FontWeight.bold : FontWeight.normal,
           ),
         ),
       ),
