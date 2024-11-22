@@ -91,7 +91,7 @@ class DetailBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20, bottom: 20),
                 child: Flexible(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,7 +126,7 @@ class DetailBox extends StatelessWidget {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: 20, bottom: 20),
             child: SizedBox(
               height: 48,
               width: double.infinity,
