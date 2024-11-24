@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=/Users/sunwoojin/Desktop/workspace/flutter_setstate_limit_sample/lib/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/sunwoojin/Desktop/workspace/flutter_shopping_mall"
+export "FLUTTER_APPLICATION_PATH=/Users/sunwoojin/Desktop/workspace/DealPick"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
