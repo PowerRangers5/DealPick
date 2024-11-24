@@ -2,9 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import 'package:google_fonts/google_fonts.dart';
 >>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
+=======
+import 'package:google_fonts/google_fonts.dart';
+=======
+>>>>>>> b0e9d45 (카테고리 선택 기능 추가)
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -17,7 +23,11 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Timer(
+<<<<<<< HEAD
       Duration(seconds: 3),
+=======
+      Duration(seconds: 2),
+>>>>>>> b0e9d45 (카테고리 선택 기능 추가)
       () {
         Navigator.pushNamed(context, '/HomeScreen');
       },
@@ -43,10 +53,17 @@ class _SplashState extends State<Splash> {
             Text(
               'DealPick',
 <<<<<<< HEAD
+<<<<<<< HEAD
               style: (
 =======
               style: GoogleFonts.lobster(
 >>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
+=======
+              style: GoogleFonts.lobster(
+=======
+              style: (
+>>>>>>> b0e9d45 (카테고리 선택 기능 추가)
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
                 fontSize: 54,
                 fontWeight: FontWeight.normal,
                 color: Colors.white,

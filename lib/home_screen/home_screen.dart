@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'package:google_fonts/google_fonts.dart';
 import './hot_deal.dart';
 import './category_page.dart';
+=======
+import 'package:flutter_dealpick/home_screen/components/hot_deal.dart';
+import 'package:flutter_dealpick/home_screen/components/category_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+=======
+import 'package:google_fonts/google_fonts.dart';
+import './hot_deal.dart';
+import './category_page.dart';
+>>>>>>> b0e9d45 (카테고리 선택 기능 추가)
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

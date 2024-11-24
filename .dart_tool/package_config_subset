@@ -50,10 +50,13 @@ http_parser
 2.12
 file:///Users/sunwoojin/.pub-cache/hosted/pub.dev/http_parser-4.0.2/
 file:///Users/sunwoojin/.pub-cache/hosted/pub.dev/http_parser-4.0.2/lib/
+<<<<<<< HEAD
 intl
 2.12
 file:///Users/sunwoojin/.pub-cache/hosted/pub.dev/intl-0.18.1/
 file:///Users/sunwoojin/.pub-cache/hosted/pub.dev/intl-0.18.1/lib/
+=======
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
 leak_tracker
 3.2
 file:///Users/sunwoojin/.pub-cache/hosted/pub.dev/leak_tracker-10.0.5/

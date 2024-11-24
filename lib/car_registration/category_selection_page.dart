@@ -24,12 +24,17 @@ class CategorySelectionPage extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
       ),
+<<<<<<< HEAD
       body: ListView.separated(
         itemCount: categories.length,
         separatorBuilder: (context, index) => const Divider(
           height: 1,
           color: Colors.grey,
         ),
+=======
+      body: ListView.builder(
+        itemCount: categories.length,
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(categories[index]),

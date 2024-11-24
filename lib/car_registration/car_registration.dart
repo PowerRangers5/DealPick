@@ -3,8 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'category_selection_page.dart';
+<<<<<<< HEAD
 import 'package:intl/intl.dart';
 import 'dart:convert';
+=======
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
 
 class ProductRegistrationForm extends StatefulWidget {
   const ProductRegistrationForm({super.key});
@@ -21,6 +24,10 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   String? _selectedFuel;
+<<<<<<< HEAD
+=======
+  int _imageCount = 0;
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
 
   @override
   void dispose() {
@@ -32,6 +39,18 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
     super.dispose();
   }
 
+<<<<<<< HEAD
+=======
+  void _handleImageSelection() {
+    // TODO: 이미지 선택 로직 구현
+    setState(() {
+      if (_imageCount < 5) {
+        _imageCount++;
+      }
+    });
+  }
+
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,6 +59,34 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+<<<<<<< HEAD
+=======
+            // 이미지 선택 영역
+            GestureDetector(
+              onTap: _handleImageSelection,
+              child: Container(
+                height: 100,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.camera_alt, 
+                      color: Colors.grey,
+                      size: 80,
+                    ),
+                    Text('$_imageCount/5', 
+                      style: const TextStyle(color: Colors.grey)),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
             // 상품 정보 입력 필드들
             _buildTextField('판매자'),
             _buildTextField('카테고리'),
@@ -86,6 +133,7 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
     }
 
     try {
+<<<<<<< HEAD
       // 등록 완료 팝업
       showDialog(
         context: context,
@@ -103,6 +151,30 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
             ],
           );
         },
+=======
+      // CSV 데이터 생성
+      final csvData = [
+        ['판매자', '카테고리', '제품명', '연료', '가격', '설명', '이미지 수'],
+        [
+          _sellerController.text,
+          _categoryController.text,
+          _productNameController.text,
+          _selectedFuel,
+          _priceController.text,
+          _descriptionController.text,
+          _imageCount.toString()
+        ]
+      ].map((row) => row.join(',')).join('\n');
+
+      // 파일 저장
+      final directory = await getApplicationDocumentsDirectory();
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final file = File('${directory.path}/product_registration_$timestamp.csv');
+      await file.writeAsString(csvData);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('데이터가 저장되었습니다: ${file.path}')),
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
       );
 
       // 폼 초기화
@@ -113,6 +185,7 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
       _descriptionController.clear();
       setState(() {
         _selectedFuel = null;
+<<<<<<< HEAD
       });
     } catch (e) {
       if (mounted) {
@@ -120,6 +193,15 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
           SnackBar(content: Text('저장 중 오류가 발생했습니다: $e')),
         );
       }
+=======
+        _imageCount = 0;
+      });
+
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('저장 중 오류가 발생했습니다: $e')),
+      );
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
     }
   }
 
@@ -141,6 +223,7 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
       }
     }
 
+<<<<<<< HEAD
     // 가격 입력 시 천단위 콤마 추가를 위한 포맷터
     TextInputFormatter? getFormatter() {
       if (label == '판매 가격') {
@@ -160,6 +243,8 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
       return null;
     }
 
+=======
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -198,6 +283,7 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
                   ),
                 ),
               )
+<<<<<<< HEAD
             : label == '판매 가격'
                 ? TextField(
                     controller: getController(),
@@ -236,6 +322,25 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
                       ),
                     ),
                   ),
+=======
+            : TextField(
+                controller: getController(),
+                maxLines: maxLines,
+                keyboardType: label == '판매 가격' ? TextInputType.number : TextInputType.text,
+                inputFormatters: label == '판매 가격' 
+                  ? [FilteringTextInputFormatter.digitsOnly]
+                  : null,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 8,
+                  ),
+                ),
+              ),
+>>>>>>> 4287929 (카테고리 선택 기능 추가)
         const SizedBox(height: 16),
       ],
     );
