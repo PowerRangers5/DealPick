@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dealpick/home_screen/components/hot_deal.dart';
 import 'package:flutter_dealpick/home_screen/components/category_page.dart';
+import 'package:flutter_dealpick/car_registration/car_registration.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,7 +19,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: _appBar(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const CarRegistration()),
+          );
+        },
         backgroundColor: const Color(0xff34BD8C),
         shape: const CircleBorder(),
         child: const Icon(
@@ -28,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: ListView(
         children: [
-          HotDeal(),
+          const HotDeal(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Divider(
