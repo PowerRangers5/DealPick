@@ -23,48 +23,31 @@ class ShoppingCartPage extends StatefulWidget {
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
   List<Map<String, dynamic>> cartItems = [];
-  final ScrollController _scrollController = ScrollController(); // ScrollController 선언
 
-  // 테스트용: 장바구니에 항목 추가 (최근 등록된 순서 유지)
-  void addItemToCart(String name, int price) {
+  // 테스트용: 장바구니에 항목 추가
+  void addItemToCart(String name, int price, String imagePath) {
     setState(() {
-      cartItems.insert(0, {'name': name, 'price': price, 'quantity': 1, 'addedAt': DateTime.now()});
-    });
-
-    //스크롤을 사용할수 있게 수정(최근 등록된 항목들을 보여주기위함)
-    Future.delayed(const Duration(milliseconds: 100), () {
-      if (_scrollController.hasClients) {
-        _scrollController.jumpTo(_scrollController.position.minScrollExtent);
-      }
+      cartItems.insert(0, {
+        'name': name,
+        'price': price,
+        'quantity': 1,
+        'imagePath': imagePath, // 이미지 경로 추가
+      });
     });
   }
 
   // 총 가격 계산
   int getTotalPrice() {
-    return cartItems.fold<int>(0, (sum, item) => (item['price'] * item['quantity']).toInt() + sum);
+    return cartItems.fold<int>(
+        0, (sum, item) => (item['price'] * item['quantity']) + sum);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context); // 이전 화면으로 돌아가기
-          },
-        ),
-        title: const Text(
-          '장바구니',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
+        title: const Text('장바구니'),
         backgroundColor: Colors.white,
-        elevation: 1,
       ),
       body: Column(
         children: [
@@ -77,32 +60,99 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     itemCount: cartItems.length,
                     itemBuilder: (context, index) {
                       final item = cartItems[index];
-                      return ListTile(
-                        leading: Image.asset('assets/car_image.png', width: 60, height: 60),
-                        title: Text(item['name'], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                        subtitle: Text(
-                          '${item['price'].toString().replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => ',')}원',
-                          style: const TextStyle(fontSize: 14),
-                        ),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  if (item['quantity'] > 1) item['quantity']--;
-                                });
-                              },
-                              icon: const Icon(Icons.remove_circle_outline),
+                      return Container(
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 16.0),
+                        height: 130, // 카드 높이
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.shade300,
+                              blurRadius: 6,
+                              offset: const Offset(0, 3),
                             ),
-                            Text(item['quantity'].toString(), style: const TextStyle(fontSize: 16)),
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  item['quantity']++;
-                                });
-                              },
-                              icon: const Icon(Icons.add_circle_outline),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            // 이미지
+                            Container(
+                              margin: const EdgeInsets.all(8.0),
+                              width: 120,
+                              height: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                  image: AssetImage(item['imagePath']),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            // 상품 정보
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 12.0, horizontal: 8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      item['name'],
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    Text(
+                                      '${item['price'].toString().replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => ',')}원',
+                                      style: const TextStyle(fontSize: 14),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        IconButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              if (item['quantity'] > 1) {
+                                                item['quantity']--;
+                                              }
+                                            });
+                                          },
+                                          icon: const Icon(
+                                            Icons.remove_circle_outline,
+                                            size: 20,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                        Text(
+                                          item['quantity'].toString(),
+                                          style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        IconButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              item['quantity']++;
+                                            });
+                                          },
+                                          icon: const Icon(
+                                            Icons.add_circle_outline,
+                                            size: 20,
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -110,23 +160,27 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     },
                   ),
           ),
+          // 구매하기 버튼
           Container(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('총가격', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                    const Text('총가격',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold)),
                     Text(
                       '${getTotalPrice().toString().replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => ',')}원',
-                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 const SizedBox(height: 16),
                 SizedBox(
-                  width: 345, //버튼 가로 길이 고정
+                  width: 345,
                   child: ElevatedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -134,18 +188,15 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(52, 189, 140, 100),
+                      backgroundColor: const Color(0xff34BD8C),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10), // 모서리 라운드 추가
+                        borderRadius: BorderRadius.circular(16),
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 17), // 버튼높이 설정
+                      padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
                     child: const Text(
                       '구매하기',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white, // 텍스트 색상 설정
-                      ),
+                      style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
                 ),
@@ -157,3 +208,4 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     );
   }
 }
+
