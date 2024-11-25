@@ -113,6 +113,9 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
       final file = File('${customerDirectory.path}/product_registration_$timestamp.csv');
       await file.writeAsString(csvData);
 
+      // 파일 생성 확인
+      print('CSV 파일이 생성되었습니다: ${file.path}'); // 파일 경로 출력
+
       // 등록 완료 팝업
       showDialog(
         context: context,
