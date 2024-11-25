@@ -31,9 +31,13 @@ dependencies:
   flutter:
     sdk: flutter
 <<<<<<< HEAD
+<<<<<<< HEAD
   intl: ^0.18.1
 =======
 >>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
+=======
+  intl: ^0.18.1
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -48,9 +52,16 @@ dependencies:
   google_fonts: ^6.2.1
 =======
   google_fonts: ^6.1.0
+<<<<<<< HEAD
 >>>>>>> b0e9d45 (카테고리 선택 기능 추가)
   path_provider: ^2.1.5
+<<<<<<< HEAD
 >>>>>>> 2240143 (feat: Splash/HomeScreen & 폴더구조 생성)
+=======
+=======
+  path_provider: ^2.1.2
+>>>>>>> 14260c2 (사진삭제|  등록하기 버튼 활성화)
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 
 dev_dependencies:
   flutter_test:

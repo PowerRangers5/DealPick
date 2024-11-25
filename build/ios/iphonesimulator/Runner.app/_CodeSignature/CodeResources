@@ -47,10 +47,14 @@
 		<key>Frameworks/App.framework/App</key>
 		<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		irLVGJhpwqN8OMtG+MwHTyrq1vw=
 =======
 		F0ct9qY6W7tyvMd4w4jPFz6klOk=
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+		mWVd8WQXSGRPjOuxQAY6OWCXSus=
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -59,10 +63,14 @@
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		lzvi6BGGG5lRrNPTMJDfzmDhnaI=
 =======
 		6O9vRyI+UsjU7V+WcTFiFVaiccs=
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+		OwJEyyYeBuF0Ow/3FVgp65U36GI=
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -79,10 +87,14 @@
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		feWeiQvizqtrUAXgBgtTLRhNMAo=
 =======
 		iS7igjMurQQiGHBoWvuw2ZyC3jc=
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+		feWeiQvizqtrUAXgBgtTLRhNMAo=
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/img/lambo.jpg</key>
 		<data>
@@ -99,10 +111,14 @@
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		+oH1lDaNr06Km3rLUOg2ygn5278=
 =======
 		Zr6FhiNKRYlEu0ImYWhEvOUoz2s=
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+		85Vs1Ams0ayOnLGLbutlehyCS94=
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -322,10 +338,14 @@
 			<key>hash2</key>
 			<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			9vwwNmclSO10bVRM/y6Cn3kYFjcohWwBBQzEMb7gd38=
 =======
 			NfK0VByUhrQ6JPdvNBZr7gcyX/PSGiGdmlzeiUxuIks=
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+			XwxM+oUoYqwN5QsTpMKPq6Epb6J61LW6Wm4lw2931dY=
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -340,10 +360,14 @@
 			<key>hash2</key>
 			<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			5Z4pqAngKOidy4veEvi1ux11BYhk/RVTGuwahWt/xN8=
 =======
 			KWtjmih/89KUefQ2qPL9Ei3DvueJM8dRiX357Kq++H0=
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+			kLae/XbytWrtqK9x3X6PA0JcYnpDZxLE6sGs+7kCY2I=
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -372,10 +396,14 @@
 			<key>hash2</key>
 			<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			197LNPEOSO1rF/1PYp+cf9fr9kN5rNcpSQwcgXRQ2iQ=
 =======
 			TKtMbjOJJTZ5a8giPcIMuClP9nuecUUGeyYe46TzP5w=
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+			197LNPEOSO1rF/1PYp+cf9fr9kN5rNcpSQwcgXRQ2iQ=
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/img/lambo.jpg</key>
@@ -404,10 +432,14 @@
 			<key>hash2</key>
 			<data>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			6cZAkPummr00Sk+fMSJC9TVBWmc7Fp5vyOOm2auJu78=
 =======
 			ObUgC/id8yHUc0m+8VGF7th/reN6KewTYxF1JIGJzN4=
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+			yTI/ckFtYh/9JL70+gDHHe570iM8yJS1q8FePHN9NC0=
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

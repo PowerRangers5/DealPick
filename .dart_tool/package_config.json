@@ -93,14 +93,20 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
       "name": "intl",
       "rootUri": "file:///Users/sunwoojin/.pub-cache/hosted/pub.dev/intl-0.18.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
+<<<<<<< HEAD
 =======
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
       "name": "leak_tracker",
       "rootUri": "file:///Users/sunwoojin/.pub-cache/hosted/pub.dev/leak_tracker-10.0.5",
       "packageUri": "lib/",
@@ -276,10 +282,14 @@
     }
   ],
 <<<<<<< HEAD
+<<<<<<< HEAD
   "generated": "2024-11-25T12:55:53.408569Z",
 =======
   "generated": "2024-11-24T14:06:40.199125Z",
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+  "generated": "2024-11-25T01:38:01.931788Z",
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///Users/sunwoojin/Desktop/workspace/flutter_setstate_limit_sample/lib/flutter",

@@ -25,6 +25,7 @@ class CategorySelectionPage extends StatelessWidget {
         ),
       ),
 <<<<<<< HEAD
+<<<<<<< HEAD
       body: ListView.separated(
         itemCount: categories.length,
         separatorBuilder: (context, index) => const Divider(
@@ -35,6 +36,14 @@ class CategorySelectionPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: categories.length,
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+      body: ListView.separated(
+        itemCount: categories.length,
+        separatorBuilder: (context, index) => const Divider(
+          height: 1,
+          color: Colors.grey,
+        ),
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(categories[index]),

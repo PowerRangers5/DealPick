@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {"files":{"/Users/sunwoojin/Desktop/workspace/DealPick/ios/Runner.xcodeproj/project.pbxproj":"1ec4bf585d7f3823b1485395b2c477e0","/Users/sunwoojin/Desktop/workspace/DealPick/ios/Podfile":"6523fe4db6c34c836d9118f2b08e55f4","/Users/sunwoojin/Desktop/workspace/flutter_setstate_limit_sample/lib/flutter/packages/flutter_tools/bin/podhelper.rb":"29abcfc3297c225fc1d1ae2380787cd6"}}
 =======
 {"files":{"/Users/sunwoojin/Desktop/workspace/DealPick/ios/Runner.xcodeproj/project.pbxproj":"989880139ea80806c8185f264429c231","/Users/sunwoojin/Desktop/workspace/DealPick/ios/Podfile":"6523fe4db6c34c836d9118f2b08e55f4","/Users/sunwoojin/Desktop/workspace/flutter_setstate_limit_sample/lib/flutter/packages/flutter_tools/bin/podhelper.rb":"29abcfc3297c225fc1d1ae2380787cd6"}}
 >>>>>>> 4287929 (카테고리 선택 기능 추가)
+=======
+{"files":{"/Users/sunwoojin/Desktop/workspace/DealPick/ios/Runner.xcodeproj/project.pbxproj":"1ec4bf585d7f3823b1485395b2c477e0","/Users/sunwoojin/Desktop/workspace/DealPick/ios/Podfile":"6523fe4db6c34c836d9118f2b08e55f4","/Users/sunwoojin/Desktop/workspace/flutter_setstate_limit_sample/lib/flutter/packages/flutter_tools/bin/podhelper.rb":"29abcfc3297c225fc1d1ae2380787cd6"}}
+>>>>>>> 4682b2d (사진삭제|  등록하기 버튼 활성화)
