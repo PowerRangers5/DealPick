@@ -140,7 +140,13 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 17), // 버튼높이 설정
                     ),
-                    child: const Text('구매하기', style: TextStyle(fontSize: 16)),
+                    child: const Text(
+                      '구매하기',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white, // 텍스트 색상 설정
+                      ),
+                    ),
                   ),
                 ),
               ],
