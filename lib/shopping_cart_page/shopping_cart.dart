@@ -23,11 +23,19 @@ class ShoppingCartPage extends StatefulWidget {
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
   List<Map<String, dynamic>> cartItems = [];
+  final ScrollController _scrollController = ScrollController(); // ScrollController 선언
 
   // 테스트용: 장바구니에 항목 추가 (최근 등록된 순서 유지)
   void addItemToCart(String name, int price) {
     setState(() {
       cartItems.insert(0, {'name': name, 'price': price, 'quantity': 1, 'addedAt': DateTime.now()});
+    });
+
+    //스크롤을 사용할수 있게 수정(최근 등록된 항목들을 보여주기위함)
+    Future.delayed(const Duration(milliseconds: 100), () {
+      if (_scrollController.hasClients) {
+        _scrollController.jumpTo(_scrollController.position.minScrollExtent);
+      }
     });
   }
 
@@ -118,7 +126,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                 ),
                 const SizedBox(height: 16),
                 SizedBox(
-                  width: double.infinity,
+                  width: 345, //버튼 가로 길이 고정
                   child: ElevatedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
