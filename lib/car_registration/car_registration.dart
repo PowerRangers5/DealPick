@@ -86,36 +86,6 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
     }
 
     try {
-      // CSV 데이터 생성
-      final csvData = [
-        ['판매자', '카테고리', '제품명', '연료', '가격', '설명'],
-        [
-          _sellerController.text,
-          _categoryController.text,
-          _productNameController.text,
-          _selectedFuel,
-          _priceController.text.replaceAll(',', ''),
-          _descriptionController.text
-        ]
-      ].map((row) => row.join(',')).join('\n');
-
-      // 앱 문서 디렉토리 가져오기
-      final directory = await getApplicationDocumentsDirectory();
-      final customerDirectory = Directory('${directory.path}/customer');
-
-      // customer 폴더가 없으면 생성
-      if (!await customerDirectory.exists()) {
-        await customerDirectory.create(recursive: true);
-      }
-
-      // CSV 파일 저장
-      final timestamp = DateTime.now().millisecondsSinceEpoch;
-      final file = File('${customerDirectory.path}/product_registration_$timestamp.csv');
-      await file.writeAsString(csvData);
-
-      // 파일 생성 확인
-      print('CSV 파일이 생성되었습니다: ${file.path}'); // 파일 경로 출력
-
       // 등록 완료 팝업
       showDialog(
         context: context,
@@ -144,7 +114,6 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
       setState(() {
         _selectedFuel = null;
       });
-
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
