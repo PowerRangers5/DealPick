@@ -24,8 +24,12 @@ class CategorySelectionPage extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: categories.length,
+        separatorBuilder: (context, index) => const Divider(
+          height: 1,
+          color: Colors.grey,
+        ),
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(categories[index]),
