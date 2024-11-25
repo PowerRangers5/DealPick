@@ -54,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar _appBar() {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Row(
         children: [
           Text(
@@ -79,7 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.black,
               size: 30,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/ShoppingCart');
+            },
           ),
         ],
       ),
