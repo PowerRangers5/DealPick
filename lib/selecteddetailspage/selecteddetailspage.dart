@@ -49,7 +49,6 @@ class Selecteddetailspage extends StatelessWidget {
             SizedBox(height: 37),
           ],
         ),
-      ),
     );
   }
 }
