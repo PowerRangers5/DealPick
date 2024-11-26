@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ShoppingCartPage extends StatefulWidget {
+  final List<dynamic> item;
+  final int index;
+  const ShoppingCartPage({super.key, required this.item, required this.index});
+
   @override
   _ShoppingCartPageState createState() => _ShoppingCartPageState();
 }
