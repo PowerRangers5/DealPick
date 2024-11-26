@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dealpick/db_list.dart';
+import 'package:flutter_dealpick/shopping_cart_page/shopping_cart.dart';
 
 class CategoryPage extends StatelessWidget {
   final int selectedCategory;
@@ -41,7 +42,6 @@ class CategoryPage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(
-          // key: PageStorageKey<String>('value'),
           shrinkWrap: true,
           itemCount: displayData.length,
           itemBuilder: (context, index) {
@@ -50,13 +50,21 @@ class CategoryPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(
+                  // 아이템을 클릭하면 장바구니 페이지로 이동
+                  Navigator.push(
                     context,
-                    '/SelectedDetailsPage',
-                    arguments: {
-                      'data': item,
-                      'index': index,
-                    },
+                    MaterialPageRoute(
+                      builder: (context) => ShoppingCartPage(
+                        cartItems: [
+                          {
+                            'name': item[2],
+                            'price': int.parse(item[4]),
+                            'quantity': 1,
+                            'imagePath': 'assets/img/lambo.jpg', // 예시 이미지 경로
+                          }
+                        ],
+                      ),
+                    ),
                   );
                 },
                 child: Row(
@@ -65,7 +73,7 @@ class CategoryPage extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
-                        'assets/img/lambo.jpg',
+                        'assets/img/lambo.jpg',  // 예시 이미지
                         width: 100,
                         height: 100,
                         fit: BoxFit.cover,
@@ -112,4 +120,4 @@ class CategoryPage extends StatelessWidget {
       ),
     );
   }
-}
+}   

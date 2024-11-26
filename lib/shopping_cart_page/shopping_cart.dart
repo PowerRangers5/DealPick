@@ -1,35 +1,35 @@
 import 'package:flutter/material.dart';
 
 class ShoppingCartPage extends StatefulWidget {
+  final List<Map<String, dynamic>> cartItems;
+
+  const ShoppingCartPage({Key? key, required this.cartItems}) : super(key: key);
+
   @override
   _ShoppingCartPageState createState() => _ShoppingCartPageState();
 }
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
-  List<Map<String, dynamic>> cartItems = [];
-
-  // 테스트용: 장바구니에 항목 추가
-  void addItemToCart(String name, int price, String imagePath) {
+  // 장바구니에 데이터 추가 (중복 방지)
+  void addToCart(Map<String, dynamic> newItem) {
     setState(() {
-      cartItems.insert(0, {
-        'name': name,
-        'price': price,
-        'quantity': 1,
-        'imagePath': imagePath, // 이미지 경로 추가
-      });
+      // 중복 확인: id 기준
+      if (!widget.cartItems.any((item) => item['item'] == newItem['item'])) {
+        widget.cartItems.insert(0, newItem); // 최신 데이터는 맨 앞에 삽입
+      }
     });
   }
 
-  // 상품 삭제
+  // 상품 삭제 (삭제 버튼으로만 삭제)
   void removeItemFromCart(int index) {
     setState(() {
-      cartItems.removeAt(index);
+      widget.cartItems.removeAt(index); // 명시적으로 삭제
     });
   }
 
   // 총 가격 계산
   int getTotalPrice() {
-    return cartItems.fold<int>(
+    return widget.cartItems.fold<int>(
         0, (sum, item) => (item['price'] * item['quantity']) + sum);
   }
 
@@ -43,14 +43,14 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
       body: Column(
         children: [
           Expanded(
-            child: cartItems.isEmpty
+            child: widget.cartItems.isEmpty
                 ? const Center(
                     child: Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
                   )
                 : ListView.builder(
-                    itemCount: cartItems.length,
+                    itemCount: widget.cartItems.length,
                     itemBuilder: (context, index) {
-                      final item = cartItems[index];
+                      final item = widget.cartItems[index];
                       return Container(
                         margin: const EdgeInsets.symmetric(
                             vertical: 8.0, horizontal: 16.0),
@@ -145,7 +145,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                 ),
                               ),
                             ),
-                            // 삭제버튼 추가
+                            // 삭제 버튼 추가
                             IconButton(
                               onPressed: () {
                                 removeItemFromCart(index);

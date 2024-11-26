@@ -182,7 +182,7 @@ class BottomRow extends StatelessWidget {
         //send to cart page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ShoppingCartPage()),
+          MaterialPageRoute(builder: (context) => ShoppingCartPage(cartItems: [],)),
         );
       },
       child: Container(
@@ -207,7 +207,7 @@ class BottomRow extends StatelessWidget {
         //action to perform when pressed
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ShoppingCartPage()),
+          MaterialPageRoute(builder: (context) => ShoppingCartPage(cartItems: [],)),
         );
       },
       style: ElevatedButton.styleFrom(
