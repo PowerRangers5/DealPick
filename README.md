@@ -1,16 +1,20 @@
-# flutter_dealpick
+# DealPick
+This is dedicated to practice the Github branching and merging skills on top of showcasing the skills for flutter
 
-A new Flutter project.
+## [About] What is this service?
+This service aims to provide a general overview of second-hand car trading app. The target users are those who trades their vehicles on a facebook market and etc. 
 
-## Getting Started
+## Contents
+1. Splash 
+2. Home Page: shows a list of items that is registered from individuals
+3. Details : shows the details of one item for trade 
+4. Shopping Cart: registering the items to the 'wish list'. This feature allows users to compare what they potentially would love to buy and choose from the generated list of items. 
 
-This project is a starting point for a Flutter application.
+## Disclosure
+This is a team project from Nov.20.2024~ Nov.26.2024. The work is free to use under the educational purposes but do not hesitate to contact us for further build and implementations. 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Contributors
+- 김민우 : @Min-woos
+- 목진성 : @JinseongMOK
+- 박정우 : @Jeongwoo-KGI
+- 선우진 : @JINI093

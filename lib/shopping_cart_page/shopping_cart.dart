@@ -45,8 +45,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
           Expanded(
             child: cartItems.isEmpty
                 ? const Center(
-                    child:
-                        Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
+                    child: Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
                   )
                 : ListView.builder(
                     itemCount: cartItems.length,
@@ -184,7 +183,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('구매가 완료되었습니다!')),
+                        const SnackBar(content: Text('구매가 완료 되었습니다!')),
                       );
                     },
                     style: ElevatedButton.styleFrom(
