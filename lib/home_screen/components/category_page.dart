@@ -7,6 +7,18 @@ class CategoryPage extends StatelessWidget {
   const CategoryPage({Key? key, required this.selectedCategory})
       : super(key: key);
 
+  /// 숫자를 한국어 금액 표기로 변환하는 함수
+  String formatCurrency(String price) {
+    int number = int.tryParse(price) ?? 0; // 문자열을 정수로 변환
+    if (number >= 100000000) {
+      int billions = number ~/ 100000000; // 억 단위
+      int millions = (number % 100000000) ~/ 10000; // 천만 단위
+      return '${billions}억 ${millions}만원';
+    } else {
+      return '$number원'; // 만원 이하의 금액
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // 선택된 카테고리에 따라 데이터베이스를 동적으로 선택
@@ -75,7 +87,7 @@ class CategoryPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 4.0),
                         Text(
-                          '${item[4]}원', // 가격 정보
+                          formatCurrency(item[4]), // 가격 정보 (포맷 적용)
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.0,
