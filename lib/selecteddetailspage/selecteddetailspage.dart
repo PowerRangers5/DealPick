@@ -1,5 +1,5 @@
-import 'package:dealpick/SelectedDetails/Widget/selected_details_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dealpick/selecteddetailspage/widget/selecteddetailspagewidget.dart';
 
 /// [제품 상세설명 페이지]
 /// <제품 상세페이지 형식>

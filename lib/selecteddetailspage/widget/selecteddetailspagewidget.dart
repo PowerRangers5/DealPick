@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dealpick/shopping_cart_page/shopping_cart.dart';
 
 /// 해당 문서는 제품 상세페이지에 들어갈 위젯들을 모아둔 곳입니다.
 /// [제품 상세페이지 위젯]
@@ -179,6 +180,10 @@ class BottomRow extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //send to cart page
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ShoppingCartPage()),
+        );
       },
       child: Container(
         width: 50,
@@ -200,7 +205,10 @@ class BottomRow extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         //action to perform when pressed
-
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ShoppingCartPage()),
+        );
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromRGBO(52, 189, 140, 100), // this is the code for #34BD8C color
