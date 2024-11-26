@@ -22,7 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const CarRegistration()), // CarRegistration 페이지로 이동
+            MaterialPageRoute(
+                builder: (context) =>
+                    const CarRegistration()), // CarRegistration 페이지로 이동
           );
         },
         backgroundColor: const Color(0xff34BD8C),
@@ -32,28 +34,30 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Color(0xffffffff),
         ),
       ),
-      body: ListView(
-        children: [
-          const HotDeal(),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            child: Divider(
-              thickness: 5,
-              color: const Color(0xffD9D9D9),
+      body: SafeArea(
+        child: Column(
+          children: [
+            const HotDeal(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Divider(
+                thickness: 5,
+                color: const Color(0xffD9D9D9),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              children: [
-                _categoryButton(0, '대형세단'),
-                _categoryButton(1, 'SUV'),
-                _categoryButton(2, '경차'),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  _categoryButton(0, '대형세단'),
+                  _categoryButton(1, 'SUV'),
+                  _categoryButton(2, '경차'),
+                ],
+              ),
             ),
-          ),
-          CategoryPage(selectedCategory: selectedCategory),
-        ],
+            CategoryPage(selectedCategory: selectedCategory),
+          ],
+        ),
       ),
     );
   }
