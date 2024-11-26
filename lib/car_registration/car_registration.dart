@@ -11,6 +11,20 @@ class ProductRegistrationForm extends StatefulWidget {
       _ProductRegistrationFormState();
 }
 
+class CarRegistration extends StatelessWidget {
+  const CarRegistration({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('차량 등록'), // 앱바 제목
+      ),
+      body: const ProductRegistrationForm(), // 차량 등록 폼을 표시
+    );
+  }
+}
+
 class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
   // 폼 컨트롤러들
   final TextEditingController _sellerController = TextEditingController();
@@ -19,7 +33,6 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   String? _selectedFuel;
-  int _imageCount = 0; // 이미지 카운트 추가
 
   @override
   void dispose() {
@@ -31,15 +44,6 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
     super.dispose();
   }
 
-  void _handleImageSelection() {
-    // TODO: 이미지 선택 로직 구현
-    setState(() {
-      if (_imageCount < 5) {
-        _imageCount++;
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -48,31 +52,6 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // 이미지 선택 영역
-            GestureDetector(
-              onTap: _handleImageSelection,
-              child: Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.camera_alt,
-                      color: Colors.grey,
-                      size: 80,
-                    ),
-                    Text('$_imageCount/5',
-                        style: const TextStyle(color: Colors.grey)),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 16),
-
             // 상품 정보 입력 필드들
             _buildTextField('판매자'),
             _buildTextField('카테고리'),
@@ -147,7 +126,6 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
       _descriptionController.clear();
       setState(() {
         _selectedFuel = null;
-        _imageCount = 0; // 이미지 카운트 초기화
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
