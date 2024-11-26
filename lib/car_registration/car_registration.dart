@@ -7,7 +7,8 @@ class ProductRegistrationForm extends StatefulWidget {
   const ProductRegistrationForm({super.key});
 
   @override
-  State<ProductRegistrationForm> createState() => _ProductRegistrationFormState();
+  State<ProductRegistrationForm> createState() =>
+      _ProductRegistrationFormState();
 }
 
 class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
@@ -60,18 +61,18 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Icon(
-                      Icons.camera_alt, 
+                      Icons.camera_alt,
                       color: Colors.grey,
                       size: 80,
                     ),
-                    Text('$_imageCount/5', 
-                      style: const TextStyle(color: Colors.grey)),
+                    Text('$_imageCount/5',
+                        style: const TextStyle(color: Colors.grey)),
                   ],
                 ),
               ),
             ),
             const SizedBox(height: 16),
-            
+
             // 상품 정보 입력 필드들
             _buildTextField('판매자'),
             _buildTextField('카테고리'),
@@ -79,9 +80,9 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
             _buildDropdownField('연료'),
             _buildTextField('판매 가격'),
             _buildTextField('상품설명', maxLines: 5),
-            
+
             const SizedBox(height: 16),
-            
+
             // 등록하기 버튼
             ElevatedButton(
               onPressed: _handleSubmit,
@@ -233,8 +234,10 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
             : TextField(
                 controller: getController(),
                 maxLines: maxLines,
-                keyboardType: label == '판매 가격' ? TextInputType.number : TextInputType.text,
-                inputFormatters: label == '판매 가격' 
+                keyboardType: label == '판매 가격'
+                    ? TextInputType.number
+                    : TextInputType.text,
+                inputFormatters: label == '판매 가격'
                     ? [FilteringTextInputFormatter.digitsOnly, getFormatter()!]
                     : null,
                 decoration: InputDecoration(

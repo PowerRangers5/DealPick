@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dealpick/home_screen/components/hot_deal.dart';
 import 'package:flutter_dealpick/home_screen/components/category_page.dart';
-import 'package:flutter_dealpick/car_registration/car_registration.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,10 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: _appBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const CarRegistration()),
-          );
+          Navigator.pushNamed(context, '/CreateForm');
         },
         backgroundColor: const Color(0xff34BD8C),
         shape: const CircleBorder(),
@@ -60,6 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar _appBar() {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Row(
         children: [
           Text(
@@ -85,7 +82,9 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.black,
               size: 30,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/ShoppingCart');
+            },
           ),
         ],
       ),

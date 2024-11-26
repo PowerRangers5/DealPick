@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dealpick/car_registration/imsi.dart';
 import 'package:flutter_dealpick/home_screen/home_screen.dart';
+import 'package:flutter_dealpick/shopping_cart_page/shopping_cart.dart';
 import 'package:flutter_dealpick/splash/splash.dart';
 
 void main() {
@@ -13,8 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
       routes: {
         '/HomeScreen': (context) => HomeScreen(),
+        '/CreateForm': (context) => Imsi(),
+        '/ShoppingCart': (context) => ShoppingCartPage(),
       },
       home: Splash(),
     );
