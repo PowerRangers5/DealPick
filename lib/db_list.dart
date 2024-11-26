@@ -1,11 +1,11 @@
 Map<int, List<String>> db_large = {
   0: [
-    '대형_판매자1',
-    'SportsCar1',
-    'Genesis1',
-    'Gasoline1',
-    '110000000',
-    'Good Condition1'
+    '대형_판매자1', // 판매자
+    'SportsCar1', // 카테고리
+    'Genesis1', // 차량명
+    'Gasoline1', // 연료
+    '110000000', // 판매 가격
+    'Good Condition1' // 상품 설명
   ],
   1: [
     '대형_판매자2',

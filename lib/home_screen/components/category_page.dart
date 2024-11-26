@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dealpick/db_list.dart';
-import 'package:flutter_dealpick/selecteddetailspage/selecteddetailspage.dart';
 
 class CategoryPage extends StatelessWidget {
   final int selectedCategory;
@@ -38,11 +37,11 @@ class CategoryPage extends StatelessWidget {
 
     List<List<String>> displayData = selectedDb.values.toList();
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.8,
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: ListView.builder(
+          // key: PageStorageKey<String>('value'),
           shrinkWrap: true,
           itemCount: displayData.length,
           itemBuilder: (context, index) {
@@ -51,15 +50,18 @@ class CategoryPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushNamed(
                     context,
-                    MaterialPageRoute(builder: (context) => selectedDetailsPage()),
+                    '/SelectedDetailsPage',
+                    arguments: {
+                      'data': item,
+                      'index': index,
+                    },
                   );
                 },
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // 이미지 부분 (고정 경로 사용)
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
@@ -70,13 +72,12 @@ class CategoryPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 16.0),
-                    // 텍스트 및 가격 정보
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${item[0]}', // 판매자 정보
+                            '${item[0]}',
                             style: const TextStyle(
                               color: Colors.grey,
                               fontSize: 14.0,
@@ -84,7 +85,7 @@ class CategoryPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 4.0),
                           Text(
-                            item[2], // 차량 모델명
+                            item[2],
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18.0,
@@ -92,7 +93,7 @@ class CategoryPage extends StatelessWidget {
                           ),
                           const SizedBox(height: 4.0),
                           Text(
-                            '${item[4]}원', // 가격 정보
+                            formatCurrency(item[4]),
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16.0,
