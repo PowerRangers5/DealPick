@@ -20,8 +20,8 @@ import 'package:flutter_dealpick/selecteddetailspage/widget/selecteddetailspagew
 /// - 각 버튼별 기능 부여
 
 // ignore: camel_case_types
-class selectedDetailsPage extends StatelessWidget {
-  const selectedDetailsPage({super.key});
+class Selecteddetailspage extends StatelessWidget {
+  const Selecteddetailspage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +37,18 @@ class selectedDetailsPage extends StatelessWidget {
           style: TextStyle(fontSize: 24),
         ),
       ),
-      body: Column(
-        children: [
-          ImageBox(), //나중에 여기에 이미지들 pass시켜야 해오
-          Container(height: 22),
-          DetailBox(), //디테일 들어가는 박스
-          Container(height: 11),
-          const BottomRow(), //장바구니, 구매하기 버튼
-          Container(height: 37),
-        ],
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(16.0),
+          children: [
+            ImageBox(), // 나중에 여기에 이미지들 pass시켜야 해오
+            SizedBox(height: 22),
+            DetailBox(), // 디테일 들어가는 박스
+            SizedBox(height: 11),
+            const BottomRow(), // 장바구니, 구매하기 버튼
+            SizedBox(height: 37),
+          ],
+        ),
       ),
     );
   }
