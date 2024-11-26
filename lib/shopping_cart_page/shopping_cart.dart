@@ -62,8 +62,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
             child: cartItems.isEmpty
                 ? const Center(
                     child: Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
-                    child:
-                        Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
                   )
                 : ListView.builder(
                     itemCount: cartItems.length,
@@ -89,7 +87,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                             // 이미지
                             Container(
                               margin: const EdgeInsets.all(8.0),
-                              margin: const EdgeInsets.all(10.0),
                               width: 120,
                               height: 120,
                               decoration: BoxDecoration(
