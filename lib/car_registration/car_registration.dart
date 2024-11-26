@@ -5,6 +5,7 @@ import 'category_selection_page.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_dealpick/db_list.dart';
 
+
 class ProductRegistrationForm extends StatefulWidget {
   const ProductRegistrationForm({super.key});
 
