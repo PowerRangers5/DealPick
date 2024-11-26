@@ -110,3 +110,5 @@ Map<int, List<String>> db_small = {
     'Good Condition3'
   ],
 };
+
+List<List<String>> carDatabase = [];

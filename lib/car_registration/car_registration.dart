@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dealpick/db_list.dart';
 import 'category_selection_page.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_dealpick/db_list.dart';
 
 class ProductRegistrationForm extends StatefulWidget {
   const ProductRegistrationForm({super.key});
@@ -98,6 +100,19 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
     }
 
     try {
+      // 차량 정보를 db_list.dart에 기록
+      List<String> newCarEntry = [
+        _sellerController.text, // 판매자
+        _categoryController.text, // 카테고리
+        _productNameController.text, // 제품명
+        _selectedFuel!, // 연료
+        _priceController.text.toString(), // 판매 가격을 String으로 변환
+        _descriptionController.text // 상품설명
+      ];
+
+      // db_list.dart의 carDatabase에 추가
+      carDatabase.add(newCarEntry);
+
       // 등록 완료 팝업
       showDialog(
         context: context,
