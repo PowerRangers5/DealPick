@@ -99,19 +99,49 @@ class _ProductRegistrationFormState extends State<ProductRegistrationForm> {
       return;
     }
 
-    try {
-      // 차량 정보를 db_list.dart에 기록
-      List<String> newCarEntry = [
-        _sellerController.text, // 판매자
-        _categoryController.text, // 카테고리
-        _productNameController.text, // 제품명
-        _selectedFuel!, // 연료
-        _priceController.text.toString(), // 판매 가격을 String으로 변환
-        _descriptionController.text // 상품설명
-      ];
+  try {
+    // 차량 정보를 리스트로 생성
+    List<String> newCarEntry = [
+      _sellerController.text, // 판매자
+      _categoryController.text, // 카테고리
+      _productNameController.text, // 제품명
+      _selectedFuel!, // 연료
+      _priceController.text.toString(), // 판매 가격
+      _descriptionController.text // 상품설명
+    ];
 
-      // db_list.dart의 carDatabase에 추가
-      carDatabase.add(newCarEntry);
+    // 카테고리에 따라 적절한 맵에 추가
+    switch (_categoryController.text) {
+      case '경차':
+        db_light[db_light.length] = newCarEntry; // 경차 카테고리에 추가
+        break;
+      case '소형차':
+        db_small[db_small.length] = newCarEntry; // 소형차 카테고리에 추가
+        break;
+      case '중형 세단':
+        db_large[db_middle.length] = newCarEntry; // 대형차 카테고리에 추가
+        break;
+      case '대형 세단':
+        db_large[db_large.length] = newCarEntry; // 대형차 카테고리에 추가
+        break;
+      case '소형 SUV':
+        db_large[db_small_suv.length] = newCarEntry; // 대형차 카테고리에 추가
+        break;
+      case '중형 SUV':
+        db_large[db_middle_suv.length] = newCarEntry; // 대형차 카테고리에 추가
+        break;
+      case '대형 SUV':
+        db_large[db_large_suv.length] = newCarEntry; // 대형차 카테고리에 추가
+        break;
+      case '스포츠카':
+        db_large[db_sports_car.length] = newCarEntry; // 대형차 카테고리에 추가
+        break;
+      default:
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('유효하지 않은 카테고리입니다.')),
+        );
+        return;
+    }
 
       // 등록 완료 팝업
       showDialog(

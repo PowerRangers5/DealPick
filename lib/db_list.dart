@@ -111,4 +111,21 @@ Map<int, List<String>> db_small = {
   ],
 };
 
-List<List<String>> carDatabase = [];
+Map<int, List<String>> db_light = {
+
+};
+Map<int, List<String>> db_middle = {
+
+};
+Map<int, List<String>> db_middle_suv = {
+
+};
+Map<int, List<String>> db_large_suv = {
+
+};
+Map<int, List<String>> db_sports_car = {
+
+};
+Map<int, List<String>> db_small_suv = {
+
+};
