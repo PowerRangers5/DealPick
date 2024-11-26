@@ -184,7 +184,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('구매가 완료되었습니다!')),
+                        const SnackBar(content: Text('구매가 완료 되었습니다!')),
                       );
                     },
                     style: ElevatedButton.styleFrom(
