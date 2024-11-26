@@ -36,6 +36,13 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     });
   }
 
+  // 상품 삭제
+  void removeItemFromCart(int index) {
+    setState(() {
+      cartItems.removeAt(index);
+    });
+  }
+
   // 총 가격 계산
   int getTotalPrice() {
     return cartItems.fold<int>(
@@ -55,6 +62,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
             child: cartItems.isEmpty
                 ? const Center(
                     child: Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
+                    child:
+                        Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
                   )
                 : ListView.builder(
                     itemCount: cartItems.length,
@@ -80,6 +89,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                             // 이미지
                             Container(
                               margin: const EdgeInsets.all(8.0),
+                              margin: const EdgeInsets.all(10.0),
                               width: 120,
                               height: 120,
                               decoration: BoxDecoration(
@@ -154,6 +164,14 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                 ),
                               ),
                             ),
+                            // 삭제버튼 추가
+                            IconButton(
+                              onPressed: () {
+                                removeItemFromCart(index);
+                              },
+                              icon: const Icon(Icons.close, color: Colors.red),
+                              tooltip: '삭제',
+                            ),
                           ],
                         ),
                       );
@@ -208,4 +226,3 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     );
   }
 }
-
