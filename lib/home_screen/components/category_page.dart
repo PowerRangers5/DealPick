@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dealpick/db_list.dart';
+import 'package:flutter_dealpick/selecteddetailspage/selecteddetailspage.dart';
 
 class CategoryPage extends StatelessWidget {
   final int selectedCategory;
@@ -50,13 +51,11 @@ class CategoryPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(
+                  Navigator.push(
                     context,
-                    '/SelectedDetailsPage',
-                    arguments: {
-                      'data': item,
-                      'index': index,
-                    },
+                    MaterialPageRoute(
+                      builder: (context) => SelectedDetailsPage(item: item, index: index),
+                    ),
                   );
                 },
                 child: Row(

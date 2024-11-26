@@ -14,33 +14,38 @@ import 'package:flutter_dealpick/shopping_cart_page/shopping_cart.dart';
 ///  - Row
 ///    - 장바구니 버튼
 ///    - 구매하기 버튼
-///
+/// 
 /// <이 파일에 존재하는 위젯>
 /// - 제품의 이미지 (횡 스크롤)
 /// - 이름 가격 들어가는 박스
 /// - 구매하기버튼 (Resized)
-///
+/// 
+
+
 
 // 제품의 이미지 (횡 스크롤) 위젯
 class ImageBox extends StatelessWidget {
-  const ImageBox({super.key});
+  final List<dynamic> item;
+  final int index;
+
+  const ImageBox({super.key, required this.item, required this.index});
+  
 
   @override
   Widget build(BuildContext context) {
     List<String> pagelist = [
       //pass in the directory
-      "assets/img/lambo.jpg",
-      "assets/img/lambo2.jpg",
+      "assets/images/gv70.png",
+      "assets/images/revuelto.png",
       //'directory2',
       //'directory3',
-    ];
+      ];
     return _imageWidget(pagelist);
   }
 
-  //final ScreenController _screenController = ScreenController();
-
-  Widget _imageWidget(List<String> pages) {
-    return SizedBox(
+  //read the data 
+  SizedBox _imageWidget(List<String> pages){
+    return SizedBox( 
       height: 260,
       width: 393,
       child: PageView(
@@ -60,27 +65,34 @@ class ImageBox extends StatelessWidget {
       child: Container(
         //color: const Color(0xff5c786E),
         decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(assetName), //add image assets here
-          fit: BoxFit.cover,
-        )),
+          image: DecorationImage(
+            image: AssetImage(assetName), //add image assets here
+            fit: BoxFit.cover,
+          )
+        ),
       ),
     );
   }
+  
 }
-
 //double check implementations
 // 이름, 가격 들어가는 Box 위젯
 // ignore: must_be_immutable
 class DetailBox extends StatelessWidget {
-  int price = 130000000; //가격
-  String carType = "Genesis3"; //팔고자 하는 차량
-  String sellerID = "대형_판매자3";
+  int price = 100000000; //가격
+  String carType = "Dream Car"; //팔고자 하는 차량
+  String sellerID = "User 1";
+  
+  final List<dynamic> item;
+  final int index;
+
+  DetailBox({super.key, required this.item, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: Column(
+
         children: [
           //Box contains Name(w Company), price
           Row(
@@ -139,8 +151,6 @@ class DetailBox extends StatelessWidget {
           const SizedBox(
             height: 235,
             width: double.infinity,
-            child: Text(
-                '출고한지 얼마 안된 차량입니다. 어렸을 적부터 스포츠가가 드림카라 한번 타보고 싶었는데 속도가 무서워서 판매합니다. 거의 새차나 다름없고 빠른 판매를 원해서 싸게 판매합니다. 좋은 분에게 갔으면 좋겠습니다.'),
             //where the text comes for details
           ),
           const SizedBox(
@@ -149,13 +159,17 @@ class DetailBox extends StatelessWidget {
           ),
         ],
       ),
+
     );
   }
 }
 
 //row of cart button with resized buy button
 class BottomRow extends StatelessWidget {
-  const BottomRow({super.key});
+  final List<dynamic> item;
+  final int index;
+
+  const BottomRow({super.key, required this.item, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +185,6 @@ class BottomRow extends StatelessWidget {
       ],
     );
   }
-
   //cart button [UI]
   // ignore: non_constant_identifier_names
   Widget CartButton(BuildContext context) {
@@ -180,7 +193,7 @@ class BottomRow extends StatelessWidget {
         //send to cart page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ShoppingCartPage()),
+          MaterialPageRoute(builder: (context) => ShoppingCartPage(item: item)),
         );
       },
       child: Container(
@@ -201,28 +214,29 @@ class BottomRow extends StatelessWidget {
   // ignore: non_constant_identifier_names
   Widget ResizedBuyButton(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        //action to perform when pressed
+      onPressed: () {  
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ShoppingCartPage()),
+          MaterialPageRoute(
+            builder: (context) => ShoppingCartPage(item: item),
+          ),
         );
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color.fromRGBO(
-            52, 189, 140, 100), // this is the code for #34BD8C color
+        backgroundColor: const Color.fromRGBO(52, 189, 140, 100), // this is the code for #34BD8C color
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        minimumSize: const Size(284, 50),
+        minimumSize: const Size(284,50),
       ),
       child: const SizedBox(
         child: Text(
-          "구매하기",
+         "구매하기",
           style: TextStyle(fontSize: 16),
         ),
       ),
     );
   }
+
 }
