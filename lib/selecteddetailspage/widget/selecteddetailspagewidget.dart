@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dealpick/shopping_cart_page/shopping_cart.dart';
+import 'package:flutter_dealpick/shopping_cart/shopping_cart_page.dart';
 
 /// 해당 문서는 제품 상세페이지에 들어갈 위젯들을 모아둔 곳입니다.
 /// [제품 상세페이지 위젯]

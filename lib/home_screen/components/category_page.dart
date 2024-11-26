@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dealpick/db_list.dart';
-import 'package:flutter_dealpick/shopping_cart_page/shopping_cart.dart';
+import 'package:flutter_dealpick/shopping_cart/shopping_cart_page.dart';
 
 class CategoryPage extends StatelessWidget {
   final int selectedCategory;
