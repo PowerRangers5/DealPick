@@ -1,5 +1,21 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ShoppingCartPage(),
+    );
+  }
+}
+
 class ShoppingCartPage extends StatefulWidget {
   @override
   _ShoppingCartPageState createState() => _ShoppingCartPageState();
@@ -45,6 +61,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
           Expanded(
             child: cartItems.isEmpty
                 ? const Center(
+                    child: Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
                     child:
                         Text('장바구니가 비어 있습니다.', style: TextStyle(fontSize: 16)),
                   )
@@ -71,6 +88,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                           children: [
                             // 이미지
                             Container(
+                              margin: const EdgeInsets.all(8.0),
                               margin: const EdgeInsets.all(10.0),
                               width: 120,
                               height: 120,
@@ -184,7 +202,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('구매가 완료되었습니다!')),
+                        const SnackBar(content: Text('구매가 완료 되었습니다!')),
                       );
                     },
                     style: ElevatedButton.styleFrom(
