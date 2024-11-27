@@ -164,7 +164,7 @@ class DetailBox extends StatelessWidget {
 
 //row of cart button with resized buy button
 class BottomRow extends StatelessWidget {
-  final List<dynamic> item;
+  final List<String> item;
   final int index;
 
   const BottomRow({super.key, required this.item, required this.index});

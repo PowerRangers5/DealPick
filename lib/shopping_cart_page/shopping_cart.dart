@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 
 class ShoppingCartPage extends StatefulWidget {
-  final List<dynamic>? itemList;
+  final List<String>? itemList;
   final int? index;
-  const ShoppingCartPage({super.key, required this.itemList, required this.index});
+  
+  const ShoppingCartPage({super.key, this.itemList, this.index});
 
   @override
-  _ShoppingCartPageState createState() => _ShoppingCartPageState();
+  _ShoppingCartPageState createState() => _ShoppingCartPageState(itemList: itemList, indexes: index);
 }
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
+  final List<String>? itemList;
+  final int? indexes;
+  int quantity = 1; //default quantity
   List<Map<String, dynamic>> cartItems = [];
+
+  _ShoppingCartPageState({this.itemList, this.indexes});
 
   // 테스트용: 장바구니에 항목 추가
   void addItemToCart(String name, int price, String imagePath) {
@@ -34,7 +40,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
   // 총 가격 계산
   int getTotalPrice() {
     return cartItems.fold<int>(
-        0, (sum, item) => (item['price'] * item['quantity']) + sum);
+        0, (sum, item) => (int.parse(item[4]) * quantity) + sum);
   }
 
   @override
@@ -54,10 +60,11 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                 : ListView.builder(
                     itemCount: cartItems.length,
                     itemBuilder: (context, index) {
-                      final item = cartItems[index];
+                      //final item = cartItems[index];
                       return Container(
                         margin: const EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 16.0),
+                          vertical: 8.0, horizontal: 16.0
+                        ),
                         height: 130, // 카드 높이
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -80,7 +87,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
                                 image: DecorationImage(
-                                  image: AssetImage(item['imagePath']),
+                                  image: AssetImage('assets/img/lambo.jpg'),//item['imagePath']),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -96,7 +103,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      item['name'],
+                                      itemList![2], //name of the car
                                       style: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
@@ -104,7 +111,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                     Text(
-                                      '${item['price'].toString().replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => ',')}원',
+                                      '${itemList![4].replaceAllMapped(RegExp(r'\B(?=(\d{3})+(?!\d))'), (match) => ',')}원', //car price
                                       style: const TextStyle(fontSize: 14),
                                     ),
                                     Row(
@@ -114,8 +121,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                         IconButton(
                                           onPressed: () {
                                             setState(() {
-                                              if (item['quantity'] > 1) {
-                                                item['quantity']--;
+                                              if (quantity > 1) {
+                                                quantity--;
                                               }
                                             });
                                           },
@@ -126,7 +133,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                           ),
                                         ),
                                         Text(
-                                          item['quantity'].toString(),
+                                          quantity.toString(),
                                           style: const TextStyle(
                                               fontSize: 16,
                                               fontWeight: FontWeight.bold),
@@ -134,7 +141,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                         IconButton(
                                           onPressed: () {
                                             setState(() {
-                                              item['quantity']++;
+                                              quantity++;
                                             });
                                           },
                                           icon: const Icon(
