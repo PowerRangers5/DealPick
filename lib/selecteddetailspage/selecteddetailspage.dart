@@ -21,7 +21,7 @@ import 'package:flutter_dealpick/selecteddetailspage/widget/selecteddetailspagew
 
 // ignore: camel_case_types
 class SelectedDetailsPage extends StatelessWidget {
-  final List<dynamic> item;
+  final List<String> item;
   final dynamic index;
 
   const SelectedDetailsPage({super.key, required this.item, required this.index});

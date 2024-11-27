@@ -25,7 +25,7 @@ import 'package:flutter_dealpick/shopping_cart_page/shopping_cart.dart';
 
 // 제품의 이미지 (횡 스크롤) 위젯
 class ImageBox extends StatelessWidget {
-  final List<dynamic> item;
+  final List<String> item;
   final int index;
 
   const ImageBox({super.key, required this.item, required this.index});
@@ -79,17 +79,15 @@ class ImageBox extends StatelessWidget {
 // 이름, 가격 들어가는 Box 위젯
 // ignore: must_be_immutable
 class DetailBox extends StatelessWidget {
-  int price = 100000000; //가격
-  String carType = "Dream Car"; //팔고자 하는 차량
-  String sellerID = "User 1";
   
-  final List<dynamic> item;
+  final List<String> item;
   final int index;
 
-  DetailBox({super.key, required this.item, required this.index});
+  const DetailBox({super.key, required this.item, required this.index});
 
   @override
   Widget build(BuildContext context) {
+    //String condition = item[5];
     return SizedBox(
       child: Column(
 
@@ -107,11 +105,11 @@ class DetailBox extends StatelessWidget {
                     //crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        sellerID,
+                        item[0],
                         style: const TextStyle(fontSize: 12),
                       ),
                       Text(
-                        carType,
+                        item[2],
                         style: const TextStyle(fontSize: 24),
                       ),
                     ],
@@ -121,7 +119,7 @@ class DetailBox extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 20),
                 child: Text(
-                  "$price 원",
+                  "${item[4]} 원",
                   style: const TextStyle(fontSize: 24),
                 ),
               ),
@@ -134,7 +132,7 @@ class DetailBox extends StatelessWidget {
               decoration: BoxDecoration(color: Color(0xffD9D9D9)),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(left: 20, bottom: 20),
             child: SizedBox(
               height: 48,
@@ -142,7 +140,7 @@ class DetailBox extends StatelessWidget {
               child: Align(
                 alignment: FractionalOffset(0, 1),
                 child: Text(
-                  '상품설명',
+                  item[5],
                   style: TextStyle(fontSize: 24),
                 ),
               ),
@@ -193,7 +191,7 @@ class BottomRow extends StatelessWidget {
         //send to cart page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ShoppingCartPage(item: item)),
+          MaterialPageRoute(builder: (context) => ShoppingCartPage(item: item, index: index,)),
         );
       },
       child: Container(
@@ -218,7 +216,7 @@ class BottomRow extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ShoppingCartPage(item: item),
+            builder: (context) => ShoppingCartPage(item: item, index: index,),
           ),
         );
       },
