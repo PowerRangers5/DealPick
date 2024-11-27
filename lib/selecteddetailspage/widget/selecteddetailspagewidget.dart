@@ -191,7 +191,7 @@ class BottomRow extends StatelessWidget {
         //send to cart page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ShoppingCartPage(item: item, index: index,)),
+          MaterialPageRoute(builder: (context) => ShoppingCartPage(itemList: item, index: index,)),
         );
       },
       child: Container(
@@ -216,7 +216,7 @@ class BottomRow extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ShoppingCartPage(item: item, index: index,),
+            builder: (context) => ShoppingCartPage(itemList: item, index: index,),
           ),
         );
       },

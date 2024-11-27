@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/HomeScreen': (context) => HomeScreen(),
-        '/ShoppingCart': (context) => ShoppingCartPage(item: null, index: null),
+        '/ShoppingCart': (context) => ShoppingCartPage(itemList: null, index: null),
         '/CarRegistration': (context) => CarRegistration(),
       },
       home: Splash(),
