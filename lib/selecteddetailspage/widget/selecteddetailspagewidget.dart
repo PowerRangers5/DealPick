@@ -35,8 +35,8 @@ class ImageBox extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> pagelist = [
       //pass in the directory
-      "assets/images/gv70.png",
-      "assets/images/revuelto.png",
+      "assets/img/lambo.jpg",
+      "assets/img/lambo.jpg"
       //'directory2',
       //'directory3',
       ];
